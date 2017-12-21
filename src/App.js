@@ -1,19 +1,21 @@
 import React, { Component } from "react";
-import logo from "./logo.svg";
 import "./App.css";
 
-const defaultTextColor = "#fff";
-
-const defaultStyle = {
-	color: defaultTextColor,
-	width: "25%"
+let defaultStyle = {
+	color: "#fff"
 };
 
 class Aggregate extends Component {
 	render() {
 		return (
-			<div style={{ ...defaultStyle, width: "40%", display: "inline-block" }}>
-				<h2 >Number Text</h2>
+			<div
+				style={{
+					...defaultStyle,
+					width: "40%",
+					display: "inline-block"
+				}}
+			>
+				<h2>Number Text</h2>
 			</div>
 		);
 	}
@@ -22,7 +24,7 @@ class Aggregate extends Component {
 class Filter extends Component {
 	render() {
 		return (
-			<div style={{ defaultStyle }}>
+			<div style={defaultStyle}>
 				<img />
 				<input type="text" />
 			</div>
@@ -32,7 +34,14 @@ class Filter extends Component {
 
 class Playlist extends Component {
 	render() {
-		return <div style={{ ...defaultStyle, display: "inline-block", width: "25%" }}>
+		return (
+			<div
+				style={{
+					...defaultStyle,
+					display: "inline-block",
+					width: "25%"
+				}}
+			>
 				<img />
 				<h3>Playlist Name</h3>
 				<ul>
@@ -40,7 +49,8 @@ class Playlist extends Component {
 					<li>Song 2</li>
 					<li>Song 3</li>
 				</ul>
-			</div>;
+			</div>
+		);
 	}
 }
 
@@ -48,7 +58,7 @@ class App extends Component {
 	render() {
 		return (
 			<div className="App">
-				<h1>Title</h1>
+				<h1 style={{ ...defaultStyle, "font-size": "54px" }}>Title</h1>
 				<Aggregate />
 				<Aggregate />
 				<Filter />
