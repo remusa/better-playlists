@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+﻿import React, { Component } from 'react';
 import './App.css';
 
 const defaultStyle = {
@@ -136,6 +136,8 @@ class Filter extends Component {
 
 class Playlist extends Component {
 	render() {
+		const { playlist } = this.props;
+
 		return (
 			<div
 				style={{
@@ -145,11 +147,11 @@ class Playlist extends Component {
 				}}
 			>
 				<img />
-				<h3>Playlist Name</h3>
+				<h3>{playlist.name}</h3>
 				<ul>
-					<li>Song 1</li>
-					<li>Song 2</li>
-					<li>Song 3</li>
+					{playlist.songs.map(song => {
+						<li>{song.name}</li>;
+					})}
 				</ul>
 			</div>
 		);
@@ -188,13 +190,12 @@ class App extends Component {
 
 						<Filter />
 
-						<Playlist />
-						<Playlist />
-						<Playlist />
-						<Playlist />
+						{this.state.serverData.user.playlists.map(playlist => (
+							<Playlist playlist={playlist} />
+						))}
 					</div>
 				) : (
-					<h1 style={defaultStyle}>Loading</h1>
+					<h1 style={defaultStyle}>Loading...</h1>
 				)}
 			</div>
 		);
