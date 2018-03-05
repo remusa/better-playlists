@@ -1,8 +1,14 @@
-import React, { Component } from "react";
-import "./App.css";
+import React, { Component } from 'react';
+import './App.css';
 
 let defaultStyle = {
-	color: "#fff"
+	color: '#fff'
+};
+
+let fakeServerData = {
+	user: {
+		name: 'René'
+	}
 };
 
 class Aggregate extends Component {
@@ -11,8 +17,8 @@ class Aggregate extends Component {
 			<div
 				style={{
 					...defaultStyle,
-					width: "40%",
-					display: "inline-block"
+					width: '40%',
+					display: 'inline-block'
 				}}
 			>
 				<h2>Number Text</h2>
@@ -38,8 +44,8 @@ class Playlist extends Component {
 			<div
 				style={{
 					...defaultStyle,
-					display: "inline-block",
-					width: "25%"
+					display: 'inline-block',
+					width: '25%'
 				}}
 			>
 				<img />
@@ -55,10 +61,23 @@ class Playlist extends Component {
 }
 
 class App extends Component {
+	constructor() {
+		super();
+
+		this.state = { serverData: {} };
+	}
+
+	componentDidMount() {
+		this.setState({ serverData: fakeServerData });
+	}
+
 	render() {
 		return (
 			<div className="App">
-				<h1 style={{ ...defaultStyle, "font-size": "54px" }}>Title</h1>
+				<h1 style={{ ...defaultStyle, 'font-size': '54px' }}>
+					{this.state.serverData.user &&
+						this.state.serverData.user.name}'s Playlists
+				</h1>
 				<Aggregate />
 				<Aggregate />
 				<Filter />
