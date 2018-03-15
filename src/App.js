@@ -175,7 +175,7 @@ class App extends Component {
 				) : (
 					<button
 						onClick={() => {
-							window.location = window.location.includes(
+							window.location = window.location.href.includes(
 								'localhost'
 							)
 								? 'http://localhost:8888/login'
