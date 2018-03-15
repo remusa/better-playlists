@@ -179,7 +179,7 @@ class App extends Component {
 								'localhost'
 							)
 								? 'http://localhost:8888/login'
-								: 'https://better-playlists.herokuapp.com/login';
+								: 'https://better-playlists-backend.herokuapp.com/login';
 						}}
 						style={{
 							padding: '28px',
