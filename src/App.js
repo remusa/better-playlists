@@ -5,6 +5,9 @@ const defaultStyle = {
 	color: '#fff'
 };
 
+// Client ID 1089f42587c347eaa03f200bbbb46ed2
+// Client Secret af046b34b03c40ee99ab7cbafc72e939
+
 const fakeServerData = {
 	user: {
 		name: 'René',
