@@ -174,9 +174,13 @@ class App extends Component {
 					</div>
 				) : (
 					<button
-						onClick={() =>
-							(window.location = 'http://localhost:8888/login')
-						}
+						onClick={() => {
+							window.location = window.location.includes(
+								'localhost'
+							)
+								? 'http://localhost:8888/login'
+								: 'https://better-playlists.herokuapp.com/login';
+						}}
 						style={{
 							padding: '28px',
 							'font-size': '50px',
